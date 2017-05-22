@@ -1,4 +1,5 @@
-
+## Setup Guide
+https://dcos.io/docs/1.9/installing/cloud/aws/
 
 ## Helpful URLs
 * http://{cloud formation output dns name}
@@ -11,7 +12,7 @@
 
 
 ## DC/OS Kafka Install
-1. dcos package install kafka
+1. dcos package install kafka --options=kafka-minimal.json
 2. dcos kafka topic create topic-test --partitions 1 --replication 1
 3. dcos kafka topic list
 
@@ -23,3 +24,12 @@
 5. ./kafka-console-consumer.sh --zookeeper master.mesos:2181/dcos-service-kafka --topic topic-test --from-beginning
 
 echo "Hello, world." | ./kafka-console-producer.sh --broker-list 10.0.3.237:9788,10.0.0.76:9385,10.0.1.87:9846 --topic topic-test
+
+## Monitoring Config
+dcos package install marathon-lb
+dcos package install cadvisor
+dcos package install influxdb
+dcos package install grafana
+
+## Services install
+dcos marathon app add ../temperature-service/src/main/marathon/application.json

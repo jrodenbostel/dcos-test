@@ -1,2 +1,3 @@
 /vagrant/dcos-vagrant/*
 /aws/dcos
+**/.DS_Store

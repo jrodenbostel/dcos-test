@@ -1,0 +1,31 @@
+{
+  "id": "/temperature-service",
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 0,
+          "labels": {
+            "VIP_0": "/temperature-service:8080"
+          },
+          "protocol": "tcp",
+          "name": "health-check"
+        }
+      ],
+      "network": "BRIDGE",
+      "image": "jrodenbostel/com-rodenbostel-temperature"
+    }
+  },
+  "cpus": 1,
+  "mem": 512,
+  "healthChecks": [
+    {
+      "portIndex": 0,
+      "protocol": "MESOS_HTTP",
+      "path": "/healthCheck"
+    }
+  ]
+}
