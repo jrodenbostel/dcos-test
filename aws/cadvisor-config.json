@@ -1,0 +1,16 @@
+{
+  "service": {
+    "name": "cadvisor",
+    "instances": 256,
+    "cpus": 0.1,
+    "mem": 128
+  },
+  "networking": {
+    "influxdb_host": "influxdb.marathon.l4lb.thisdcos.directory",
+    "influxdb_port": 8086,
+    "external_access": {
+      "enable": true,
+      "external_access_port": 18080
+    }
+  }
+}
