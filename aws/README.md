@@ -1,5 +1,5 @@
 ## Setup Guide
-https://dcos.io/docs/1.9/installing/cloud/aws/
+https://dcos.io/docs/1.11/installing/cloud/aws/
 
 ## Helpful URLs
 * http://{cloud formation output dns name} (dcos)
